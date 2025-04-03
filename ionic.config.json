@@ -1,0 +1,7 @@
+{
+  "name": "app-sitmypet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
