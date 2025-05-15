@@ -1,0 +1,23 @@
+<ion-content class="signup-screen" fullscreen>
+    <div class="header">
+      <h1>SitMypet</h1>
+    <div class="signup-container">
+      <p class="subtitle">Vous êtes ?</p>
+
+      <div class="user-role-selection">
+       
+        <div class="role-card" (click)="goToGuardianForm()">
+          <img src="assets/dogsitting.png" alt="Gardien">
+          <p>Gardien</p>
+        </div>
+        <div class="role-card" (click)="goToOwnerForm()">
+          <img src="assets/catsitting.png" alt="Propriétaire">
+          <p>Propriétaire d'animal</p>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="footer"></div>
+  </div>
+</ion-content>

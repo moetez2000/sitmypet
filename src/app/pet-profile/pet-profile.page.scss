@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+.pet-profile-content {
+  --background: #fdfaf5;
+  font-family: 'Quicksand', sans-serif;
+  padding: 0 16px 16px;
+}
+
+.header-toolbar {
+  --background: #1dd1a1;
+  color: #fff;
+}
+
+/* Top card */
+.top-card {
+  background: #1dd1a1;
+  border-radius: 0 0 24px 24px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.name-fields {
+  flex: 1;
+}
+.flat-input {
+  --background: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  --border-width: 0 0 1px 0;
+  --border-color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+.flat-input ion-input {
+  color: #fff;
+  font-size: 18px;
+}
+.photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar-big {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 4px;
+}
+.avatar-placeholder {
+  width: 64px; height: 64px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;
+}
+
+/* Section cards */
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  
+}
+.section-card h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+
+/* Segment */
+ion-segment {
+  margin-bottom: 12px;
+}
+ion-segment-button {
+  text-transform: none;
+  font-size: 14px;
+}
+
+.age-inputs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.age-inputs ion-input,
+.age-inputs ion-select {
+  flex: 1;
+}
+
+
+.save-btn {
+  --background: #1dd1a1;
+  --color: #fff;
+  border-radius: 24px;
+  margin-top: 8px;
+}
+.grid-icons {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+  }
+  
+  .icon-card {
+    background: #fafafa;
+    border-radius: 8px;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  
+  .icon-card img {
+    width: 48px;
+    height: 48px;
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter 0.2s, transform 0.2s;
+  }
+  
+  
+  .icon-card p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .icon-card.selected img {
+    filter: none;
+    transform: scale(1.1);
+  }
+  
+  
+.size-segment {
+  margin: 8px 0 16px;
+
+  --background: #fff;
+  --indicator-color: #1dd1a1;
+}
+.size-segment ion-segment-button {
+  flex: 1;
+  text-transform: none;
+  font-size: 14px;
+
+  --background: transparent;
+  --color: #a9a9a9;
+}
+
+.size-segment ion-segment-button.activated {
+  --color: #1dd1a1;         
+}
+
+.gender-segment {
+  margin: 8px 0 16px;
+  --background: #fff;
+  --indicator-color: #1dd1a1;
+}
+
+.gender-segment ion-segment-button {
+  flex: 1;
+  text-transform: none;
+  font-size: 14px;
+  --background: transparent;
+  --color: #a9a9a9;
+}
+
+.gender-segment ion-segment-button.activated {
+  --background: #1dd1a1;
+  --color: #fff;
+}
+
+.other-select {
+  margin-top: 12px;
+  --background: #fff;
+  border-radius: 8px;
+
+}
+
+.other-select ion-label {
+  color: #333;
+  font-weight: 500;
+}
+
+.other-select ion-select {
+  --padding-start: 12px;
+  --color: #333;
+}
+
+.date-item {
+  --background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.date-icon {
+  font-size: 24px;
+  color: #1dd1a1;
+  margin-right: 8px;
+}
+
+.date-item ion-datetime {
+  --padding-start: 0;
+  --color: #333;
+  flex: 1;
+}
+ion-item {
+  --background: #fff;
+  border-radius: 8px;
+}
+
+ion-label {
+  color: #333;
+  font-weight: 500;
+}
+
+.other-select, ion-item {
+  margin-top: 12px;
+  --background: #fff;
+  border-radius: 8px;
+}
+
+ion-label[position="stacked"], ion-label[position="floating"] {
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+ion-select {
+  --padding-start: 12px;
+  --color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+ion-select-option {
+  color: #333;
+}
+
+ion-select:focus-within {
+  --border-color: #1dd1a1;
+}
+
+ion-select .select-placeholder {
+  color: #aaa;
+}
+
+ion-select .select-icon {
+  color: #1dd1a1;
+}
+

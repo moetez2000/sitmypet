@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="pets-content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mes animaux</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pets-content" fullscreen>
+  <div class="pets-wrapper">
+    <ng-container *ngIf="animals.length > 0; else noAnimals">
+      <ion-list>
+        <ion-item *ngFor="let a of animals; let i = index">
+          <ion-avatar slot="start">
+            <img [src]="a.photoDataUrl" />
+          </ion-avatar>
+          <ion-label>
+            <h3>{{ a.name }}</h3>
+            <p>{{ a.description }}</p>
+          </ion-label>
+          <ion-buttons slot="end" class="action-buttons">
+            <!-- Éditer -->
+            <ion-button fill="clear" size="small"   [routerLink]="['/pets/edit', i]">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+      
+            <!-- Supprimer -->
+            <ion-button fill="clear" size="small"  (click)="deleteAnimal(i)">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ng-container>
+
+    <ng-template #noAnimals>
+      <div class="no-animals">
+        <img src="assets/fig8.png" alt="Aucun animal" class="no-animals-img" />
+        <p>Vous n'avez aucun animal.</p>
+      </div>
+    </ng-template>
+    <ion-button expand="block" class="add-btn" (click)="goToAdd()">
+      Ajouter un animal
+    </ion-button>
+  </div>
+</ion-content>

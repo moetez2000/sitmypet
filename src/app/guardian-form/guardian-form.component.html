@@ -1,0 +1,242 @@
+<ion-content class="signup-screen" fullscreen>
+  
+    <div class="header">
+      <h1>SitMypet</h1>
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="personnel">
+        <ion-label>personnelles</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="professionnel">
+        <ion-label>professionnelles</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="localisation">
+        <ion-label>localisation</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="signup-container">
+    <!-- Section personnelle -->
+<div *ngIf="selectedSegment === 'personnel'">
+  <!-- Nom -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+    <input type="text" placeholder="Nom" />
+  </div>
+
+  <!-- Prénom -->
+  <div class="form-group icon">
+    <div class="container">
+      <ion-icon name="person-outline"></ion-icon>
+    </div>
+    <input type="text" placeholder="Prénom" />
+  </div>
+
+  <!-- Adresse e-mail -->
+  <div class="form-group icon-right">
+    <input type="email" placeholder="Adresse e-mail" />
+    <div class="icon-container">
+      <ion-icon name="mail-outline"></ion-icon>
+    </div>
+  </div>
+
+  <!-- Sexe -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="male-female-outline"></ion-icon>
+    </div>
+    <select style="flex: 1; padding: 12px 20px; border: none; font-size: 15px; outline: none; background-color: white;">
+      <option disabled selected>Sexe</option>
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+    </select>
+  </div>
+
+  <!-- Téléphone -->
+  <div class="form-group icon-right">
+    <input type="tel" placeholder="Numéro de téléphone" />
+    <div class="icon-container">
+      <ion-icon name="call-outline"></ion-icon>
+    </div>
+  </div>
+
+  <!-- Date de naissance -->
+<div class="form-group icon-left" (click)="showDatePicker = true">
+  <div class="icon-container">
+    <ion-icon name="calendar-outline"></ion-icon>
+  </div>
+  <input 
+    [value]="birthDate"
+    readonly
+    placeholder="Date de naissance"
+    style="flex: 1; padding: 12px 20px; border: none; font-size: 15px; background-color: white;" />
+</div>
+>
+<ion-popover
+  *ngIf="showDatePicker"
+  [isOpen]="showDatePicker"
+  (didDismiss)="showDatePicker = false"
+>
+  <ion-datetime
+    presentation="date"
+    [value]="birthDateValue"
+    (ionChange)="onDateSelected($event)"
+  ></ion-datetime>
+</ion-popover>
+
+
+
+  <!-- Photo -->
+  <div class="form-group icon-right">
+    <label for="photoFile" class="custom-upload-label">
+      <span class="upload-placeholder">Photo</span>
+      <div class="icon-container">
+        <ion-icon name="camera-outline"></ion-icon>
+      </div>
+    </label>
+    <input 
+      id="photoFile" 
+      type="file" 
+      accept="image/*" 
+      (change)="onFileChange($event, 'photo')" 
+      hidden
+    />
+  </div>
+
+  <!-- Mot de passe -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </div>
+    <input type="password" placeholder="Mot de passe" />
+  </div>
+
+  <!-- Confirmation du mot de passe -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </div>
+    <input type="password" placeholder="Confirmer le mot de passe" />
+  </div>
+
+</div>
+
+
+    <!-- Section professionnelle -->
+<div *ngIf="selectedSegment === 'professionnel'">
+
+  <!-- Expérience -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="briefcase-outline"></ion-icon>
+    </div>
+    <input type="text" placeholder="Expérience (ex: 2 ans de garde)" />
+  </div>
+
+  <!-- Qualités -->
+  <div class="form-group icon-right">
+    <input type="text" placeholder="Qualités (ex: patient, ponctuel)" />
+    <div class="icon-container">
+      <ion-icon name="sparkles-outline"></ion-icon>
+    </div>
+  </div>
+
+  <!-- Compétences -->
+  <div class="form-group icon-left">
+    <div class="icon-container">
+      <ion-icon name="settings-outline"></ion-icon>
+    </div>
+    <input type="text" placeholder="Compétences (ex: premiers secours animaux)" />
+  </div>
+
+  <!-- Certificat ACACED -->
+  <div class="form-group icon-left">
+    <label for="acacedFile" class="custom-upload-label">
+      <span class="upload-placeholder">Certificat ACACED</span>
+      <div class="icon-container">
+        <ion-icon name="document-outline"></ion-icon>
+      </div>
+    </label>
+    <input 
+      id="acacedFile" 
+      type="file" 
+      accept=".pdf,.jpg,.png" 
+      (change)="onFileChange($event, 'acaced')" 
+      hidden
+    />
+  </div>
+
+</div>
+
+<!-- Section localisation -->
+<div *ngIf="selectedSegment === 'localisation'">
+  <ion-segment [(ngModel)]="selectedAddressType" style="margin-bottom: 20px;">
+    <ion-segment-button value="personnelle">
+      <ion-label>Adresse personnelle</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="chenil">
+      <ion-label>Adresse du chenil</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Adresse personnelle -->
+  <div *ngIf="selectedAddressType === 'personnelle'">
+    <h4 style="margin-bottom: 10px; text-align: left;">Adresse personnelle</h4>
+
+    <div class="form-group icon-left">
+      <div class="icon-container">
+        <ion-icon name="home-outline"></ion-icon>
+      </div>
+      <input type="text" placeholder="Cité" />
+    </div>
+
+    <div class="form-group icon-left">
+      <div class="icon-container">
+        <ion-icon name="navigate-outline"></ion-icon>
+      </div>
+      <input type="text" placeholder="Rue" />
+    </div>
+
+    <div class="form-group icon-right">
+      <input type="text" placeholder="Code postal" />
+      <div class="icon-container">
+        <ion-icon name="mail-open-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adresse du chenil -->
+  <div *ngIf="selectedAddressType === 'chenil'">
+    <h4 style="margin: 20px 0 10px; text-align: left;">Adresse du chenil</h4>
+
+    <div class="form-group icon-left">
+      <div class="icon-container">
+        <ion-icon name="home-outline"></ion-icon>
+      </div>
+      <input type="text" placeholder="Cité (chenil)" />
+    </div>
+
+    <div class="form-group icon-left">
+      <div class="icon-container">
+        <ion-icon name="navigate-outline"></ion-icon>
+      </div>
+      <input type="text" placeholder="Rue (chenil)" />
+    </div>
+
+    <div class="form-group icon-right">
+      <input type="text" placeholder="Code postal (chenil)" />
+      <div class="icon-container">
+        <ion-icon name="mail-open-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <ion-button expand="block" class="signup-button" (click)="submitForm()">
+    Envoyer
+  </ion-button>
+  
+
+</div>
+
+
+

@@ -1,0 +1,60 @@
+.pets-content {
+   --background: #fdfaf5;
+  font-family: 'Quicksand', sans-serif;
+  
+  height: 100%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  color: #1dd1a1;
+  
+
+ 
+  }
+  .no-animals {
+    text-align: center;
+    margin-top: 25%;
+    color: #aaa;
+  }
+  .ng-template p{
+    color: rgb(42, 42, 42);
+  }
+  ion-list ion-item {
+    --background: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  ion-button {
+    --background: #1dd1a1;
+    --color: #fff;
+    border-radius: 24px;
+    margin-top: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+.action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-buttons ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    --background: transparent;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#1dd1a1;
+  }
+  
+  .action-buttons ion-icon {
+    font-size: 20px;
+  }
+  
+  .action-buttons ion-button:hover {
+    background: rgba(0,0,0,0.05);
+    border-radius: 50%;
+  }
+  
