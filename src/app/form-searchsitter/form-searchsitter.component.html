@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recherche de Petsitter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <!-- Propriétaire -->
+    <ion-item>
+      <ion-label >Propriétaire</ion-label>
+      <ion-input formControlName="owner" required></ion-input>
+    </ion-item>
+
+    <!-- Animal -->
+    <ion-item>
+      <ion-label >Animal</ion-label>
+      <ion-input formControlName="animal" required></ion-input>
+    </ion-item>
+
+    <!-- Description -->
+    <ion-item>
+      <ion-label >Description</ion-label>
+      <ion-textarea formControlName="description" rows="3" required></ion-textarea>
+    </ion-item>
+
+    <!-- Type de garde (sélection) -->
+    <ion-item>
+      <ion-label>Type de garde</ion-label>
+      <ion-select formControlName="guardType" required>
+        <ion-select-option value="chezLeProprietaire">Chez le propriétaire</ion-select-option>
+        <ion-select-option value="chenil">En chenil</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Durée -->
+    <ion-item>
+      <ion-label >Durée</ion-label>
+      <ion-input formControlName="duration" required type="number"></ion-input>
+    </ion-item>
+
+<!-- Date début -->
+<ion-item (click)="showStartDatePicker = true">
+  <ion-icon name="calendar-outline" slot="end" class="date-icon"></ion-icon>
+  <ion-label>Date de début</ion-label>
+  <ion-input 
+    readonly 
+    [value]="formatDate(Form.get('startDate')?.value)" 
+    
+    style="flex: 1; padding: 12px 20px; border: none; font-size: 15px; background-color: white;">
+  </ion-input>
+</ion-item>
+
+<!-- Date fin -->
+<ion-item (click)="showEndDatePicker = true">
+  <ion-icon name="calendar-outline" slot="end" class="date-icon"></ion-icon>
+  <ion-label>Date de fin</ion-label>
+  <ion-input 
+    readonly 
+    [value]="formatDate(Form.get('endDate')?.value)" 
+   
+    style="flex: 1; padding: 12px 20px; border: none; font-size: 15px; background-color: white;">
+  </ion-input>
+</ion-item>
+
+<!-- Popover avec le Datepicker pour Date début -->
+<ion-popover
+  *ngIf="showStartDatePicker"
+  [isOpen]="showStartDatePicker"
+  (didDismiss)="showStartDatePicker = false">
+  <ng-template>
+    <ion-datetime
+      interface="modal"
+      presentation="date"
+      [value]="Form.get('startDate')?.value"
+      (ionChange)="onDateSelected($event, 'startDate')"
+      cancel-text="Annuler"
+      done-text="OK">
+    </ion-datetime>
+  </ng-template>
+</ion-popover>
+
+<!-- Popover pour Date fin -->
+<ion-popover
+  *ngIf="showEndDatePicker"
+  [isOpen]="showEndDatePicker"
+  (didDismiss)="showEndDatePicker = false">
+  <ng-template>
+    <ion-datetime
+      interface="modal"
+      presentation="date"
+      [value]="Form.get('endDate')?.value"
+      (ionChange)="onDateSelected($event, 'endDate')"
+      cancel-text="Annuler"
+      done-text="OK">
+    </ion-datetime>
+  </ng-template>
+</ion-popover>
+
+    <!-- Services attendus -->
+    <ion-item>
+      <ion-label >Services attendus</ion-label>
+      <ion-input formControlName="services" required></ion-input>
+    </ion-item>
+
+    <!-- Rémunération min -->
+    <ion-item>
+      <ion-label >Rémunération min</ion-label>
+      <ion-input formControlName="minSalary" required type="number"></ion-input>
+    </ion-item>
+
+    <!-- Rémunération max -->
+    <ion-item>
+      <ion-label >Rémunération max</ion-label>
+      <ion-input formControlName="maxSalary" required type="number"></ion-input>
+    </ion-item>
+
+   
+
+    <!-- Carte pour la sélection de l'adresse -->
+    <ion-item>
+      <ion-label >Adresse</ion-label>
+      <ion-input type="text" [(ngModel)]="newSearch.adresse" name="adresse" placeholder="Sélectionner une adresse" readonly></ion-input>
+    </ion-item>
+  
+    <div>
+      <ion-button expand="full" (click)="openMap()">Sélectionner l'adresse sur la carte</ion-button>
+    </div>
+  
+    <!-- Modale pour afficher la carte -->
+    <div *ngIf="showMap" class="map-modal">
+      <div class="map-modal-content">
+        <h4>Sélectionnez une position sur la carte</h4>
+        <div id="map" style="height: 400px;"></div>
+        <div class="map-actions">
+          <ion-button expand="full" (click)="closeMap()">Confirmer</ion-button>
+        </div>
+      </div>
+    </div>
+    <!-- Soumettre le formulaire -->
+    <ion-button expand="full" type="submit" [disabled]="!Form.valid">Soumettre</ion-button>
+  </form>
+</ion-content>

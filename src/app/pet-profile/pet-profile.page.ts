@@ -12,8 +12,11 @@ import { IonDatetime } from '@ionic/angular';
   templateUrl: './pet-profile.page.html',
   styleUrls: ['./pet-profile.page.scss'],
 })
+
 export class PetProfilePage implements OnInit {
 
+  showDatePicker: boolean = false; // Contrôle de l'affichage du popover
+  
   // your existing model
   pet: Animal = { name: '', description: '',birth_date: '',breed:'' };
   preview: string | null = null;
@@ -107,10 +110,21 @@ export class PetProfilePage implements OnInit {
     
   }
 
-  openDatePicker() {
-    if (this.datePicker) {
-    }
+  // Fonction pour mettre à jour la date sélectionnée dans le champ
+  onDateSelected(event: any) {
+    // Mise à jour de la date de naissance de l'animal
+    this.pet.birth_date = event.detail.value;
+    // Ferme le popover après la sélection de la date
+    this.showDatePicker = false;
   }
+
+  // Formatage de la date pour l'affichage dans le champ de texte
+  formatDate(date: string | undefined): string {
+    if (!date) return ''; // Si la date est undefined ou null, retourne une chaîne vide
+    const d = new Date(date);
+    return d.toLocaleDateString();  // Retourne la date formatée localement (ex : DD/MM/YYYY)
+  }
+  
     
     savePet() {
       console.log('Animal enregistré', this.pet);

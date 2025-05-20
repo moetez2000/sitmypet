@@ -1,0 +1,207 @@
+// Utilisation de la couleur #1dd1a1 comme couleur principale
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+form {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0 16px;
+  background-color: #f5f5f5;
+}
+
+ion-header {
+  --background: #fdfaf5;
+  ion-toolbar {
+    --background: #1dd1a1;
+    ion-title {
+      color: #fdfaf5;
+    }
+  }
+}
+
+ion-content {
+    --background: #fdfaf5;
+
+}
+ion-item {
+  margin-bottom: 16px;
+  --background: #fdfaf5;
+}
+
+ion-label {
+
+    color: #666!important; /* Couleur explicite pour rendre le texte visible */
+    font-size: 16px; /* Vous pouvez ajuster la taille de la police si nécessaire */
+    display: block; /* Ajoutez ceci si nécessaire pour s'assurer que le label prend toute la largeur */
+  }
+  
+
+ion-input,
+ion-textarea,ion-select {
+  --background: #fdfaf5;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #666!important;
+}
+
+ion-input::placeholder,
+ion-textarea::placeholder {
+  color: #333;
+  font-weight: 500;
+}
+
+ion-icon.date-icon {
+  color: #1dd1a1;
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+ion-popover {
+  --background: #fff;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  .map-modal-content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+
+    h4 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .map-actions {
+      margin-top: 16px;
+
+      ion-button {
+        background: #1dd1a1;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 50px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+ion-button {
+  --background: #1dd1a1;
+  --border-radius: 50px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  padding: 12px 24px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+ion-button:disabled {
+  --background: #b1adad;
+  cursor: not-allowed;
+}
+
+ion-segment {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  ion-segment-button {
+    --color-checked: white;
+    --background-checked: #1dd1a1;
+    --color: #1dd1a1;
+    font-weight: bold;
+  }
+}
+
+ion-select {
+  --background: #fdfaf5;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ion-select-option {
+  color: #333;
+}
+
+ion-avatar .avatar-big {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+ion-avatar .avatar-placeholder {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1dd1a1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+ion-button.fill.clear {
+  padding: 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.grid-icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.icon-card {
+  flex: 1;
+  background: #fdfaf5;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.icon-card:hover {
+  transform: scale(1.05);
+}
+
+.selected {
+  border: 2px solid #1dd1a1;
+}
+
+.icon-img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.other-select {
+  margin-top: 16px;
+}
+
+ion-segment-button {
+  background-color: #f0f0f0;
+}

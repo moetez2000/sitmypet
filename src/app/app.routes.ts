@@ -9,10 +9,11 @@ import { ConfirmationGuardianComponent } from './confirmation-guardian/confirmat
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FindSitterComponent } from './find-sitter/find-sitter.component';
 import { PetProfilePage } from './pet-profile/pet-profile.page';
-import { PetsPage }           from './pets/pets.page';
-
+import { PetsPage } from './pets/pets.page';
+import { DashboardGuardianComponent } from './dashboard-guardian/dashboard-guardian.component';
+import { FormSearchSitterComponent} from './form-searchsitter/form-searchsitter.component';
 export const routes: Routes = [
-  { path: '', component: SplashComponent }, // ✅ doit être tout en haut
+  { path: '', component: SplashComponent },
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
@@ -22,15 +23,16 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'find-sitter', component: FindSitterComponent },
   { path: 'pets/add', component: PetProfilePage },
-  { path: 'pets',        component: PetsPage },
+  { path: 'pets', component: PetsPage },
+  { path: 'dashboard-guardian', component: DashboardGuardianComponent },
+  { path: 'form-searchsitter', component: FormSearchSitterComponent },
   { path: 'pets/edit/:index', component: PetProfilePage },
   {
     path: 'pet-profile',
-    loadComponent: () => import('./pet-profile/pet-profile.page').then( m => m.PetProfilePage)
+    loadComponent: () => import('./pet-profile/pet-profile.page').then(m => m.PetProfilePage)
   },
   {
     path: 'pets',
-    loadComponent: () => import('./pets/pets.page').then( m => m.PetsPage)
+    loadComponent: () => import('./pets/pets.page').then(m => m.PetsPage)
   }
-
 ];

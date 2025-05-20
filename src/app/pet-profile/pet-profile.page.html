@@ -112,23 +112,37 @@
 </ion-segment-button>
 </ion-segment>
 
-<h3>Date de naissance</h3>
-<ion-item class="date-item">
-  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-    <ion-datetime
-      [(ngModel)]="pet.birth_date"
-      displayFormat="DD/MM/YYYY"
+ <!-- Date de naissance avec icône et popover -->
+ <div class="section-card">
+  <h3>Date de naissance</h3>
+  <ion-item class="date-item" (click)="showDatePicker = true">
+    <ion-icon name="calendar-outline" slot="start" class="date-icon"></ion-icon>
+    <ion-input 
+      readonly 
+      [value]="formatDate(pet.birth_date)" 
       placeholder="JJ/MM/AAAA"
-      style="background: transparent; border: none;"
-     >
-    </ion-datetime>
-    <ion-icon
-      slot="end"
-      name="calendar-outline"
-      class="date-icon">
-    </ion-icon>
-  </div>
-</ion-item>
+      style="flex: 1; padding: 12px 20px; border: none; font-size: 15px; background-color: white;">
+    </ion-input>
+  </ion-item>
+
+  <!-- Popover avec ion-datetime -->
+  <ion-popover
+    *ngIf="showDatePicker"
+    [isOpen]="showDatePicker"
+    (didDismiss)="showDatePicker = false">
+    <ng-template>
+      <ion-datetime
+        interface="modal"
+        presentation="date"
+        [value]="pet.birth_date"
+        (ionChange)="onDateSelected($event)"
+        cancel-text="Annuler"
+        done-text="OK">
+      </ion-datetime>
+    </ng-template>
+  </ion-popover>
+</div>
+
 
 
   <h3>Poids (kg)</h3>
