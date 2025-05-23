@@ -11,6 +11,9 @@
   color: #fff;
 }
 
+ion-button{
+  color: #f5f4f4;
+}
 /* Top card */
 .top-card {
   background: #1dd1a1;
@@ -31,9 +34,10 @@
   --border-width: 0 0 1px 0;
   --border-color: rgba(255,255,255,0.7);
   margin-bottom: 8px;
+  color: #1dd1a1;
 }
 .flat-input ion-input {
-  color: #fff;
+  color: #666;
   font-size: 18px;
 }
 .photo-wrapper {
@@ -72,6 +76,7 @@
 /* Segment */
 ion-segment {
   margin-bottom: 12px;
+  
 }
 ion-segment-button {
   text-transform: none;

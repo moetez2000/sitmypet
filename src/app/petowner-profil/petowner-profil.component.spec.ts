@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { FormSearchSitterComponent } from './form-searchsitter.component';
 
-describe('FormSearchsitterComponent', () => {
-  let component: FormSearchSitterComponent;
-  let fixture: ComponentFixture<FormSearchSitterComponent>;
+import { PetownerProfilComponent } from './petowner-profil.component';
+
+describe('PetownerProfilComponent', () => {
+  let component: PetownerProfilComponent;
+  let fixture: ComponentFixture<PetownerProfilComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormSearchSitterComponent ],
+      declarations: [ PetownerProfilComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormSearchSitterComponent);
+    fixture = TestBed.createComponent(PetownerProfilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

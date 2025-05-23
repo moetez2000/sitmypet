@@ -12,6 +12,9 @@ import { PetProfilePage } from './pet-profile/pet-profile.page';
 import { PetsPage } from './pets/pets.page';
 import { DashboardGuardianComponent } from './dashboard-guardian/dashboard-guardian.component';
 import { FormSearchSitterComponent} from './form-searchsitter/form-searchsitter.component';
+import { PetownerProfilComponent} from './petowner-profil/petowner-profil.component';
+import { gardienProfilComponent} from './gardien-profil/gardien-profil.component';
+
 export const routes: Routes = [
   { path: '', component: SplashComponent },
   { path: 'home', component: HomeComponent },
@@ -26,6 +29,8 @@ export const routes: Routes = [
   { path: 'pets', component: PetsPage },
   { path: 'dashboard-guardian', component: DashboardGuardianComponent },
   { path: 'form-searchsitter', component: FormSearchSitterComponent },
+  { path: 'petowner-profil', component: PetownerProfilComponent },
+  { path: 'gardien-profil' , component: gardienProfilComponent},
   { path: 'pets/edit/:index', component: PetProfilePage },
   {
     path: 'pet-profile',

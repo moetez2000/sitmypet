@@ -126,7 +126,11 @@ export class PetProfilePage implements OnInit {
   }
   
     
-    savePet() {
-      console.log('Animal enregistré', this.pet);
-    }
-  }
+ // Méthode pour enregistrer l'animal
+ savePet() {
+  // Logique pour enregistrer l'animal ici...
+  console.log('Animal enregistré');
+
+  // Redirige l'utilisateur vers la page des pets
+  this.router.navigate(['/pets']);
+}}

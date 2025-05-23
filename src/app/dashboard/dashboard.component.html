@@ -1,77 +1,39 @@
 <ion-content class="dashboard" fullscreen>
-<ion-header class="custom-header">
-  <div class="header-top">
-    <h2>Bienvenue <ion-icon name="paw-outline"></ion-icon></h2>
-    <ion-icon name="notifications-outline" class="notif-icon"></ion-icon>
-  </div>
-  <div class="welcome-banner">
-    <h1>SitMyPet</h1>
-    <p>Votre compagnon est entre de bonnes mains.</p>
-  </div>
-</ion-header>
+  <!-- Header -->
+  <ion-header class="custom-header">
+    <div class="header-top">
+      <h2>Bienvenue <ion-icon name="paw-outline"></ion-icon></h2>
+      <ion-icon name="notifications-outline" class="notif-icon"></ion-icon>
+    </div>
+    <div class="welcome-banner">
+      <h1>SitMyPet</h1>
+      <p>Votre compagnon est entre de bonnes mains.</p>
+    </div>
+  </ion-header>
 
 
-<ion-content class="dashboard-content">
-  <div class="article-section">
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="water-outline" class="article-icon"></ion-icon>
-        <ion-card-title>Hydratez votre animal</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Assurez-vous que votre compagnon a toujours accès à de l'eau fraîche, surtout en été.
-      </ion-card-content>
-    </ion-card>
+  <!-- Footer -->
+  <ion-footer class="custom-footer">
+    <ion-toolbar>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home">
+            <ion-icon name="home-outline"></ion-icon>
+          </ion-tab-button>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="sunny-outline" class="article-icon"></ion-icon>
-        <ion-card-title>Évitez les promenades en pleine chaleur</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Promenez votre animal tôt le matin ou en fin de journée pour éviter les coups de chaleur.
-      </ion-card-content>
-    </ion-card>
+          <ion-tab-button tab="chat" (click)="navigateTo('/form-searchsitter')">
+            <ion-icon name="chatbubble-outline"></ion-icon>
+          </ion-tab-button>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="paw-outline" class="article-icon"></ion-icon>
-        <ion-card-title>Vérifiez régulièrement ses coussinets</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Les coussinets peuvent se fissurer ou se brûler sur les surfaces chaudes ou glacées.
-      </ion-card-content>
-    </ion-card>
-  </div>
-</ion-content>
+          <ion-tab-button tab="add" (click)="navigateTo('/pets')">
+            <ion-icon name="paw-outline"></ion-icon>
+          </ion-tab-button>
 
-
-<ion-footer class="custom-footer">
-  <ion-toolbar>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-          <ion-icon name="home-outline"></ion-icon>
-        </ion-tab-button>
-
-        <ion-tab-button tab="chat" (click)="navigateTo('/form-searchsitter')">
-          <ion-icon name="chatbubble-outline"></ion-icon>
-        </ion-tab-button>
-
-        <ion-tab-button tab="add" (click)="navigateTo('/pets')">
-          <ion-icon name="add-circle-outline"></ion-icon>
-        </ion-tab-button>
-<!--
-        <ion-tab-button tab="notif" (click)="navigateTo('/notifications')">
-          <ion-icon name="notifications-outline"></ion-icon>
-        </ion-tab-button>
---->
-        <ion-tab-button tab="profile" (click)="navigateTo('/profile')">
-          <ion-icon name="person-outline"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-toolbar>
-</ion-footer>
-
+          <ion-tab-button tab="profile" (click)="navigateTo('/petowner-profil')">
+            <ion-icon name="person-outline"></ion-icon>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
